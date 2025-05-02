@@ -1,0 +1,9 @@
+services:
+    frankenphp:
+        image: dunglas/frankenphp
+        ports:
+            - "80:80"
+        volumes:
+            - ./:/app
+        extra_hosts:
+            - "myapp.test:127.0.0.1"
