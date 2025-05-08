@@ -25,12 +25,12 @@ class loginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username' => [
+            'email' => [
                 'required',
                 'string',
                 function ($attribute, $value, $fail) {
-                    if (!Users::where('username', $value)->exists()) {
-                        $fail('Username not found.');
+                    if (!Users::where('email', $value)->exists()) {
+                        $fail('Email not found.');
                     }
                 }
             ],

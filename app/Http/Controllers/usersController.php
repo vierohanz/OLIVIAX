@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class usersController extends Controller
 {
+
     public function profileSuperAdmin(): profileResource
     {
         $auth = Auth::user();
