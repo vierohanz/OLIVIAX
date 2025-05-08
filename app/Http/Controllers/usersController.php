@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class usersController extends Controller
 {
-
     public function profileDinkes(): profileResource
     {
         $auth = Auth::user();

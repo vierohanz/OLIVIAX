@@ -26,8 +26,8 @@ class DashboardPanelProvider extends PanelProvider
             ->default()
             ->id('dashboard')
             ->path('dashboard')
-            ->login(false)
-            ->authGuard('sanctum')
+            ->login()
+            ->authGuard('web')
             ->colors([
                 'primary' => Color::Amber,
             ])

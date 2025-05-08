@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Filament\Models\Contracts\FilamentUser;
 
-class Users extends Authenticatable
+class Users extends Authenticatable implements FilamentUser
 {
     use Notifiable,
         HasFactory,
@@ -30,6 +30,6 @@ class Users extends Authenticatable
     ];
     public function canAccessPanel(\Filament\Panel $panel): bool
     {
-        return in_array($this->role, [1, 2, 3]); // hanya role tertentu bisa akses
+        return in_array($this->role, [1, 2, 3]);
     }
 }
