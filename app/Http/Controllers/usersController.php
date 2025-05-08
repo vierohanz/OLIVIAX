@@ -10,22 +10,29 @@ use Illuminate\Support\Facades\Auth;
 class usersController extends Controller
 {
 
-    public function profileSuperAdmin(): profileResource
+    public function profileDinkes(): profileResource
     {
         $auth = Auth::user();
         if ($auth->role != 1) {
             abort(403, 'Unauthorized');
         }
-
         return new profileResource($auth);
     }
-    public function profileAdmin(): profileResource
+    public function profilePosyandu(): profileResource
     {
         $auth = Auth::user();
         if ($auth->role != 2) {
             abort(403, 'Unauthorized');
         }
+        return new profileResource($auth);
+    }
 
+    public function profileIbu(): profileResource
+    {
+        $auth = Auth::user();
+        if ($auth->role != 3) {
+            abort(403, 'Unauthorized');
+        }
         return new profileResource($auth);
     }
 }

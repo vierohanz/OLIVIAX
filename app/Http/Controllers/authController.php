@@ -13,7 +13,7 @@ class authController extends Controller
     public function login(loginRequest $request): loginResource
     {
         $data = $request->validated();
-        $user = Users::where('username', $data['username'])->first();
+        $user = Users::where('email', $data['email'])->first();
         $user->token = $user->createToken('auth_token')->plainTextToken;
         return new loginResource($user);
     }

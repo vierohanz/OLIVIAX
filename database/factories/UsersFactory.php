@@ -27,7 +27,6 @@ class UsersFactory extends Factory
             'name' => fake()->name(),
             'username' => fake()->userName(),
             'email' => fake()->userName() . '@gmail.com',
-            'picture' => 'picture.jpg',
             'password' => static::$password ??= Hash::make('Password123'),
             'created_at' => now(),
             'updated_at' => now(),
