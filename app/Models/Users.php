@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Models\Contracts\FilamentUser;
 
 class Users extends Authenticatable
 {
@@ -27,4 +28,8 @@ class Users extends Authenticatable
         'role',
         'email_verified_at',
     ];
+    public function canAccessPanel(\Filament\Panel $panel): bool
+    {
+        return in_array($this->role, [1, 2, 3]); // hanya role tertentu bisa akses
+    }
 }
